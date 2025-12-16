@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COCO BONN</title>
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 0;
+}
+#music-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: pink;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+    z-index: 1000;
+}
+#music-toggle:hover {
+    transform: scale(1.2);
+}
+header {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 233, 200, 0.8);
+    color: #604242;
+    position: relative;
+    z-index: 1;
+}
+nav h3 {
+    display: inline-block;
+    margin: 0 15px;
+}
+main {
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+section {
+    margin-bottom: 40px;
+    background: rgba(203, 180, 129, 0.87);
+    padding: 20px;
+    border-radius: 10px;
+}
+article {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 15px 0;
+    background: rgba(255,255,255,0.9);
+    color: #333;
+    border-radius: 8px;
+}
+.menu-img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+input, textarea, label {
+    display: block;
+    margin: 10px 0;
+}
+input[type="number"], textarea {
+    width: 50%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: rgba(255, 233, 200, 0.8);
+    color: rgb(59, 11, 11);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+input[type="submit"]:hover {
+    background-color: #ffaa00;
+    color: #000;
+}
+footer {
+    text-align: center;
+    padding: 15px;
+    background: rgba(255, 233, 200, 0.8);
+    color: #333;
+    position: relative;
+    z-index: 1;
+}
+h2, h3 {
+    color: #735656;
+}
+#Ending{
+    color: #735656;
+    font-style: italic;
+}
+#gif-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+#gif-container iframe {
+    max-width: 100%;
+}
+</style>
+</head>
+<body>
+
+<button id="music-toggle">
+    <img id="music-icon" src="music-on-icon.png" alt="Music On" width="32" height="32">
+</button>
+<audio id="background-music" src="a-sip-of-coffee-to-relieve-stress-110620.mp3" type="audio/mpeg" loop autoplay></audio>
+
+<header>
+    <img id="header-img" src="https://via.placeholder.com/600x150" alt="Welcome to COCO BONN">
+    <h1>COCO BONN</h1>
+    <nav>
+        <h3><a href="#menu">Menu</a></h3>
+        <h3><a href="#order-form">Place Your Order</a></h3>
+    </nav>
+</header>
+
+<main>
+    <section id="menu">
+        <h2>Menu</h2>
+        <article>
+            <img class="menu-img" src="burger.jpg" alt="Puppy Burger">
+            <h3>Puppy Burger</h3>
+            <p>Juicy burger with star sauce and fresh lettuce. <i>$12.99</i></p>
+        </article>
+        <article>
+            <img class="menu-img" src="pasta.jpg" alt="Cosmic Pasta">
+            <h3>Cosmic Pasta</h3>
+            <p>Creamy pasta with cosmic herbs. <i>$14.50</i></p>
+        </article>
+        <article>
+            <img class="menu-img" src="salad.jpg" alt="Crisp Fish Salad">
+            <h3>Crisp Fish Salad</h3>
+            <p>Crisp fish salad with meteor vinaigrette. <i>$9.75</i></p>
+        </article>
+    </section>
+
+    <section id="order-form">
+        <h2>Place Your Order</h2>
+        <form id="order-form-element">
+            <h3>Menu Items</h3>
+            <label for="burger">Puppy Burger:</label>
+            <input type="number" id="burger" name="burger" min="0">
+            <label for="pasta">Cosmic Pasta:</label>
+            <input type="number" id="pasta" name="pasta" min="0">
+            <label for="salad">Crisp Fish Salad:</label>
+            <input type="number" id="salad" name="salad" min="0">
+
+            <h3>Sides</h3>
+            <label><input type="checkbox" name="side" value="fries"> Cosmic Fries</label>
+            <label><input type="checkbox" name="side" value="soup"> Star Soup</label>
+
+            <h3>Add-ons</h3>
+            <label><input type="radio" name="addon" value="cheese"> Extra Cheese</label>
+            <label><input type="radio" name="addon" value="bacon"> Meteor Bacon</label>
+
+            <h3>Special Requests</h3>
+            <label for="requests">Notes:</label>
+            <textarea id="requests" name="requests" rows="4" cols="40"></textarea>
+
+            <input type="submit" value="Go to Checkout">
+        </form>
+        <div id="gif-container"></div>
+    </section>
+</main>
+
+<footer id="Ending">
+    <p><b>Made with love by @hejarcakma46431</b></p>
+</footer>
+
+<script>
+const musicButton = document.getElementById('music-toggle');
+const musicIcon = document.getElementById('music-icon');
+const music = document.getElementById('background-music');
+
+window.addEventListener('load', () => {
+    music.play().catch(() => {});
+});
+
+musicButton.addEventListener('click', () => {
+    if (music.paused) {
+        music.play();
+        musicIcon.src = "music-on-icon.png";
+        musicIcon.alt = "Music On";
+    } else {
+        music.pause();
+        musicIcon.src = "music-off-icon.png";
+        musicIcon.alt = "Music Off";
+    }
+});
+
+const orderForm = document.getElementById('order-form-element');
+const thankYouMsg = document.getElementById('thank-you-message');
+const gifContainer = document.getElementById('gif-container');
+
+orderForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    gifContainer.innerHTML = `<iframe src="https://i.pinimg.com/originals/3c/3e/4f/3c3e4f6ce5b1ce438b7a02d6818e975b.gif" 
+        height="423" width="345" frameborder="0" scrolling="no"></iframe>`;
+});
+</script>
+
+</body>
+</html>
